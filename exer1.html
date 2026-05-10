@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabuada do 7</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='black'><path d='M280-280h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 160h80v-240h-80v240ZM280-600h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z'/></svg>"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+
+    <script>
+      window.onload = function () {
+        document.getElementById("btnVerificar").onclick = verificarResposta;
+        mudaValoresTabela();
+      };
+
+      let tabuadaSete = 7;
+      let indiceAtual = 0;
+
+      let conta = new Array("", "", "", "", "", "", "", "", "", "", "");
+
+      function mudaValoresTabela() {
+        let celulasRaposta = document.getElementsByClassName("resultado");
+
+        for (var i = 0; i < conta.length; i++) {
+          celulasRaposta[i].innerHTML = conta[i];
+        }
+      }
+
+      function verificarResposta() {
+        let campo = document.getElementById("respostaPergunta");
+        let titulo = document.getElementById("h2");
+
+        let respostaDigitada = Number(campo.value);
+        let resultadoReal = tabuadaSete * indiceAtual;
+
+        if (respostaDigitada == resultadoReal) {
+          conta[indiceAtual] =
+            '<span class="material-symbols-outlined">check</span>';
+        } else {
+          conta[indiceAtual] =
+            '<span class="material-symbols-outlined">close</span>';
+        }
+
+        indiceAtual++;
+
+        if (indiceAtual <= 10) {
+          titulo.innerHTML = `Quanto é ${tabuadaSete} x ${indiceAtual}?`;
+        } else {
+          titulo.innerHTML = "Tabuada Completa!!";
+        }
+
+        campo.value = "";
+        mudaValoresTabela();
+      }
+    </script>
+    <style>
+      td {
+        border: 1px solid black;
+        padding: 2px 5px;
+        text-align: center;
+        font-size: 25px;
+      }
+
+      #quadroTotal {
+        border: 2px solid black;
+        width: 500px;
+        padding: 20px;
+        margin: 50px auto;
+        text-align: center;
+        font-family: Arial;
+      }
+
+      h2 {
+        font-size: 40px;
+        margin-top: 0;
+      }
+
+      label,
+      input,
+      button {
+        vertical-align: middle;
+        font-size: 22px;
+      }
+
+      #respostaPergunta {
+        font-size: 20px;
+        margin: 0 10px;
+        padding: 5px;
+      }
+
+      #respostaPergunta:focus {
+        border: 2px solid rgba(14, 67, 227, 0.813);
+        outline: none;
+      }
+
+      #btnVerificar {
+        cursor: pointer;
+      }
+
+      .resultado {
+        width: 80px;
+        height: 35px;
+      }
+
+      .material-symbols-outlined {
+        vertical-align: middle;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="quadroTotal">
+      <h2 id="h2">Quanto é 7 x 0 ?</h2>
+      <label id="resposta">Resposta:</label>
+      <input type="text" id="respostaPergunta" />
+      <button id="btnVerificar">Verificar</button>
+      <br /><br />
+
+      <table id="tabela" border="1">
+        <tr>
+          <td>7x0</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x1</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x2</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x3</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x4</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x5</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x6</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x7</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x8</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x9</td>
+          <td class="resultado"></td>
+        </tr>
+        <tr>
+          <td>7x10</td>
+          <td class="resultado"></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
